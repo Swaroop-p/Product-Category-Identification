@@ -20,6 +20,7 @@ https://devcenter.heroku.com/articles/getting-started-with-python#set-up
 	> git init
 	> git clone https://github.com/heroku/python-getting-started.git
     	> cd python-getting-started
+-------------------------For any new app created, do this, as heroku is already installed and configured to an account, just create the heroku app and deploy----------------------
 13. heroku create
 14. git push heroku master
 
