@@ -25,6 +25,7 @@ from controllers.PredictionHandler import PredictionHandler
 # ===============================================================================
 #   Initialization Steps
 # ===============================================================================
+
 app_path = os.path.abspath(os.path.dirname(sys.argv[0]))
 appcfg_filename = app_path + '/predictapi.cfg'
 app_config = {}
@@ -35,6 +36,7 @@ define("port", default=8000, help='run on the given port', type=int)
 # ===============================================================================
 #   Helper Functions
 # ===============================================================================
+
 def load_config(filename):
     appcfg = configparser.ConfigParser()
     try:
@@ -52,14 +54,11 @@ def load_config(filename):
 
 class DemoHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello world! Health predictor app here!")
-        logger_info("Demo Handler GET Request")
+        self.write("Hello! Ready to recognize product categories.")
+        logger_info("Handling GET Request")
 
     def post(self):
         body = tornado.escape.json_decode(self.request.body)
-        # logger_info(body["key_name"])
-        # logger_info(body["key_image"])
-        # print(type(body["key_image"]))
         with open("imageToSave.png", "wb") as fh:
             fh.write(base64.b64decode(body["key_image"]))
             #fh.write(body["key_image"].decode["base64"])
