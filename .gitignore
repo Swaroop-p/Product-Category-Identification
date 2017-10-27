@@ -7,3 +7,8 @@
 .idea/
 jsconfig.json
 .vscode/
+
+#models
+*.h5
+*.h4
+*.sav
