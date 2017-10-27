@@ -24,8 +24,8 @@ from keras.utils.np_utils import to_categorical
 train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv')
 
-train_path = r'D:\\A_hackerearth\\dl_1\\train_img\\'
-test_path = r'D:\\A_hackerearth\\dl_1\\test_img\\'
+train_path = r'~\\hackerearth\\dl_1\\\\train_img\\'
+test_path = r'~\\hackerearth\\dl_1\\test_img\\'
 
 train_img=[]
 for i in range(len(train)):
@@ -106,7 +106,7 @@ model.fit_generator(datagen.flow(X_train, Y_train,
                     callbacks=[early,checkpoint])
 
 #model.fit(train_img,train_y,batch_size=batch_size,epochs=nb_epoch,shuffle=True,verbose=1)
-model.save('D:\\A_hackerearth\\dl_1\\model_rsenet_aug.txt')
+model.save('model.sav')
 for i, layer in enumerate(base_model.layers):
    print(i, layer.name)
 
@@ -134,14 +134,14 @@ y_pred = np.argmax(predictions_valid,axis=1)
 
 from sklearn.metrics import f1_score
 
-y_true = pd.read_csv(r'D:\\A_hackerearth\\dl_1\\finale_produkte_tesse_imaze.csv')['label']
+y_true = pd.read_csv(r'actual_categories.csv')['label']
 y_true=le.fit_transform(y_true)
 scr = f1_score(y_true, y_pred, average='micro')
 labels = le.inverse_transform(y_pred)
 print("final score : "+str(scr))
 #sLength = len(test['image_id'])
 #test['label'] = pd.Series(labels,np.random.randn(sLength), index=test.index)
-test = pd.read_csv(r'D:\\A_hackerearth\\dl_1\\test.csv')
+test = pd.read_csv(r'test.csv')
 
 test = pd.concat([test, pd.DataFrame(labels,columns=['label'])], axis=1)
-test.to_csv(r'D:\\A_hackerearth\\dl_1\\imag_prede.csv',index=False)
+test.to_csv(r'imag_prede.csv',index=False)
