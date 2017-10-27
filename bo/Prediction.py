@@ -24,31 +24,10 @@ class BO_Prediction(BO_Base):
 
         # ----> Machine Learning Code goes here
 
-        products_dict = {'beans': 0,
-                             'cake': 1,
-                             'candy': 2,
-                             'cereal': 3,
-                             'chips': 4,
-                             'chocolate': 5,
-                             'coffee': 6,
-                             'corn': 7,
-                             'fish': 8,
-                             'flour': 9,
-                             'honey': 10,
-                             'jam': 11,
-                             'juice': 12,
-                             'milk': 13,
-                             'nuts': 14,
-                             'oil': 15,
-                             'pasta': 16,
-                             'rice': 17,
-                             'soda': 18,
-                             'spices': 19,
-                             'sugar': 20,
-                             'tea': 21,
-                             'tomatosauce': 22,
-                             'vinegar': 23,
-                             'water': 24}
+        products_dict = {'beans': 0, 'cake': 1, 'candy': 2, 'cereal': 3, 'chips': 4, 'chocolate': 5, 'coffee': 6, 'corn': 7, 'fish': 8,
+                         'flour': 9, 'honey': 10, 'jam': 11, 'juice': 12, 'milk': 13, 'nuts': 14, 'oil': 15, 'pasta': 16, 'rice': 17,
+                         'soda': 18, 'spices': 19, 'sugar': 20, 'tea': 21, 'tomatosauce': 22, 'vinegar': 23, 'water': 24 }
+        
         reversed_prod_dict = {v: k for k, v in products_dict.items()}
 
         logger_info("Code block at Product Prediction fn.")
@@ -56,8 +35,7 @@ class BO_Prediction(BO_Base):
             #fh.write(prediction_params["key_image"].decode('base64'))
             fh.write(base64.b64decode(prediction_params["key_image"]))
             fh.close()
-
-        #model = load_model('model_rsenet_aug_sqzn.txt')
+       
         img = image.load_img('imageToSave.png', target_size=(227, 227))
         img = image.img_to_array(img)
         # img = np.array(img)
@@ -79,10 +57,4 @@ class BO_Prediction(BO_Base):
 
             return product_name
 
-        #json_response = json.dumps({'result': str("Trial - Just Got the data!")})
-        # try:
-        #     Y_pred = rf.predict(dataset)
-        # except ValueError as error:
-        #     return error.message
-        #
-        # return Y_pred[0]
+       
