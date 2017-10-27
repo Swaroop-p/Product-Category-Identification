@@ -11,3 +11,4 @@ jsconfig.json
 #models
 *.h5
 *.h4
+*.sav
